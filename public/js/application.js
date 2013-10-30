@@ -15,11 +15,11 @@ $(document).ready(function() {
 
   $( "form" ).on( "submit", function( event ) {
       event.preventDefault();
-      var data = $( this ).serialize()
-
-      $.post("/grandma", data, function( response ) {
-          var gSays = $( response ).find("#grandma_says");
-          $( gSays ).empty().appendTo("#grandma_says");
+      var url = $( this ).attr( "action" );
+      var data = $( this ).serialize();
+      
+      $.post(url, data, function( response ) {
+        $( ".response" ).html(response);
       });
   });
 

@@ -7,17 +7,17 @@ end
 post '/grandma' do
   input = params["user_input"]
   if input == ""
-    redirect to ('/?grandma=SAY SOMETHING!')
+    erb :_say_empty, :layout => false
   elsif input == input.upcase
-    redirect to('/?grandma=I hear ya. That\'s nice')
+    erb :_say_uppercase, :layout => false
   else
-    redirect to('/?grandma=SPEAK UP!')
+    erb :_say_lowercase, :layout => false
   end
 end
 
 
 # get '/?grandma=SAY SOMETHING!' do
-  
+
 # end
 
 
